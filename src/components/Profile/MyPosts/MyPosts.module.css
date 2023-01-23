@@ -1,0 +1,44 @@
+.posts_title {
+  color: rgb(237, 239, 104);
+  font-size: 20px;
+  text-align: center;
+}
+
+.posts {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+} 
+
+.array_posts {
+  display: block;
+}
+
+.input_title {
+  color: #fff;
+}
+
+.input_post {
+  position: relative;
+  padding: 15px 38px;
+  border-radius: 8px;
+}
+
+.button {
+  position: absolute;
+  left: 44%;
+  top: 440px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border-color: rgb(30, 187, 114);
+  background-color: rgba(30, 187, 114, 0.76);
+}
+
+.button:hover {
+  transform: color 0.4s all;
+  background-color: rgb(30, 187, 114);
+}
+
+.button:active {
+  top: 430px;
+}

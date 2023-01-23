@@ -1,0 +1,17 @@
+.header {
+  grid-area: h;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_img {
+  width: 75px;
+  padding: 40px 20px;
+}
+
+.header_title {
+  padding: 550px;
+  color: rgb(241, 188, 115);
+}
+

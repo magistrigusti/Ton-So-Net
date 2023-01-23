@@ -1,0 +1,25 @@
+
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.avatar_img {
+  width: 100px;
+  padding: 50px;
+}
+
+.profile_description {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+
+
+.footer_title {
+  text-align: center;
+  color: rgb(90, 248, 164);
+}

@@ -1,0 +1,34 @@
+.wrapper {
+  padding-top: 20px;
+}
+
+.avatar_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar_img {
+  width: 50px;
+  border-radius: 11px;
+  border: 1px solid rgb(59, 232, 137);
+}
+
+.post {
+  color: #fff;
+}
+
+.post_text {
+  padding-top: 20px;
+  color: #fff;
+}
+
+.like_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.like_img {
+  width: 30px;
+  padding-right: 10px;
+}

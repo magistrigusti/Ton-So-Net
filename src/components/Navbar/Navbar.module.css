@@ -1,0 +1,33 @@
+
+.navbar {
+  grid-area: n;
+  margin: 20px auto;
+  text-decoration: none;
+}
+
+.nav_list {
+  display: block;
+  list-style-type: none;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 40px 0;
+}
+
+.nav_item {
+  padding-bottom: 10px;
+}
+
+.nav_link {
+  color: #fff;
+}
+
+.nav_link:hover {
+  color: rgb(196, 235, 106);
+  border-bottom: 2px solid rgb(196, 235, 106);
+}
+
+.nav_link:active {
+  color: gold;
+  border-bottom: 3px solid gold;
+}
+
