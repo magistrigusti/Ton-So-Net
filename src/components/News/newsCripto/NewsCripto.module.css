@@ -1,0 +1,14 @@
+.cripto {
+  padding: 15px;
+  color: rgb(132, 0, 255);
+  border: 1px solid rgb(132, 0, 255);
+  border-radius: 15px;
+  opacity: 0.8;
+  margin: 25px;
+}
+
+.cripto_img {
+  padding-right: 15px;
+  width: 65px;
+  background-color: none;
+}

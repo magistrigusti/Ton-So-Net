@@ -3,4 +3,12 @@
 .dialogs {
   padding: 15px;
   color: #FFF;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  margin: 35px;
+  opacity: 0.6;
+}
+
+.dialogs:hover {
+  opacity: 1;
 }
