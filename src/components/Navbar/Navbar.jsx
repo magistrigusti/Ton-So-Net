@@ -7,19 +7,19 @@ const Navbar = (props) => {
     <nav className = {classes.navbar}>
         <ul className = {classes.nav_list}>
           <li className = {classes.nav_item}>
-            <NavLink to="/profile" className = {classes.nav_link}>Profile</NavLink>
+            <NavLink className = {classes.nav_link} activeClassName={classes.activeLink} to="/profile">Profile</NavLink>
           </li>
 
           <li className = {classes.nav_item}>
-            <a className = {classes.nav_link} href="/dialogs">Messages</a>
+            <NavLink className = {classes.nav_link} to="/dialogs">Messages</NavLink>
           </li>
 
           <li className = {classes.nav_item}>
-            <a className = {classes.nav_link} href='/news'>News</a>
+            <NavLink className = {classes.nav_link} to='/news'>News</NavLink>
           </li>
 
           <li className = {classes.nav_item}>
-            <a className = {classes.nav_link} href="$#">Music</a> 
+            <NavLink className = {classes.nav_link} href="/music">Music</NavLink> 
           </li>
         </ul>
 
