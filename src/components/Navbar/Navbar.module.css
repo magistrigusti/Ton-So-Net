@@ -21,18 +21,13 @@
   color: #fff;
 }
 
-/* .nav_link:hover {
+.nav_link:hover {
   color: rgb(196, 235, 106);
   border-bottom: 2px solid rgb(196, 235, 106);
-} */
-.nav_item .activeLink {
-  color: green;
 }
-/* .nav_link:active {
-  color: gold;
-} */
 
-.nav_link .activeLink {
+
+.nav_link:active {
   color: gold;
 }
 
