@@ -1,13 +1,13 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classes from './Dialogs.module.css';
 
 const DialogItem = (props) => {
   let path = "/dialogs/" + props.id;
   return (
-    <NavLink className = {classes.dialog} to={path}>
-      <img className = {classes.img} src={props.src}  alt="" />
-      <div className = {classes.name}>{props.name}</div>
+    <NavLink className={classes.dialog} to={path}>
+      <img className={classes.img} src={props.src} alt="" />
+      <div className={classes.name}>{props.name}</div>
     </NavLink>
   );
 }
@@ -19,20 +19,37 @@ const Message = (props) => {
 }
 
 const Dialogs = (props) => {
+  let dialogsData = [
+    { id: 1, name: 'Maria', src: "https://cdn-icons-png.flaticon.com/512/4202/4202832.png" },
+    { id: 2, name: 'Andry', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
+    { id: 3, name: 'Dmitrii', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" },
+    { id: 4, name: 'Sasha', src: "https://cdn-icons-png.flaticon.com/512/9416/9416234.png" },
+    { id: 5, name: 'Adi', src: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png" },
+    { id: 6, name: 'Ivan', src: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png" }
+  ];
+
+  
+  let messagesData = [
+    { id: 1, text: 'Hey' },
+    { id: 2, text: 'Hello Andry' },
+    { id: 3, text: 'How are you Dmittrii' },
+    { id: 4, text: 'i,m fune, and you?' }
+  ];
+
+  let dialogsElements = dialogsData.map(dialog => <DialogItem id={dialog.id} name={dialog.name} src={dialog.src} />, );
+
+
+
+  let messagesElements = messagesData.map(message => <Message message={message.text} /> )
+
   return (
-    <div className = {classes.dialogs}>
-      <div className = {classes.dialogs_items}>
-        <DialogItem name="Maria" id="1" src="https://cdn-icons-png.flaticon.com/512/4202/4202832.png" />
-        <DialogItem name="Andry" id="2" src="https://cdn-icons-png.flaticon.com/512/4202/4202839.png" />
-        <DialogItem name="Dmitrii" id="3" src="https://cdn-icons-png.flaticon.com/512/4202/4202836.png" />
-        <DialogItem name="Sasha" id="4" src="https://cdn-icons-png.flaticon.com/512/9416/9416234.png" />
-        <DialogItem name="Adi" id="5" src="https://cdn-icons-png.flaticon.com/512/4202/4202840.png" />
-        <DialogItem name="Ivan" id="6" src="https://cdn-icons-png.flaticon.com/512/4202/4202831.png" />
+    <div className={classes.dialogs}>
+      <div className={classes.dialogs_items}>
+        { dialogsElements }
       </div>
 
       <div className={classes.messages}>
-        <Message message='Hey' />
-        <Message message='i,m fune and you?' />
+        { messagesElements }
       </div>
     </div>
   );

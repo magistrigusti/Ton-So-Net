@@ -27,6 +27,10 @@
   margin-right: 25px;
 }
 
+.name {
+  color: rgb(135, 222, 134);
+}
+
 .messages {
   width: 70%;
 }

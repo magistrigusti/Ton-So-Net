@@ -4,7 +4,8 @@
 
 .avatar_wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  
 }
 
 .avatar_img {
@@ -14,6 +15,7 @@
 }
 
 .post {
+  display: block;
   color: #fff;
 }
 

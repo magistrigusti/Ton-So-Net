@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <nav className = {classes.navbar}>
         <ul className = {classes.nav_list}>
           <li className = {classes.nav_item}>
-            <NavLink className = {classes.nav_link} activeClassName={classes.activeLink} to="/profile">Profile</NavLink>
+            <NavLink className = {classes.nav_link} to="/profile">Profile</NavLink>
           </li>
 
           <li className = {classes.nav_item}>

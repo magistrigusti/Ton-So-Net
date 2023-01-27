@@ -7,7 +7,7 @@ const Post = (props) => {
             <div className = {classes.post}>
               <div className = {classes.avatar_wrapper}>
                 <img className = {classes.avatar_img} src="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=740&t=st=1672668960~exp=1672669560~hmac=36ac6cccafffa1d286104eb1c759db7a171bb136036368801652784523f43138" alt=""></img>
-                <h5>My first post</h5>
+                
               </div>
 
               <div className = {classes.post_text}>
