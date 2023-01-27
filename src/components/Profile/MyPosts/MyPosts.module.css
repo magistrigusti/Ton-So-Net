@@ -26,8 +26,6 @@
 
 .button {
   position: absolute;
-  left: 44%;
-  top: 440px;
   padding: 8px 14px;
   border-radius: 8px;
   border-color: rgb(30, 187, 114);
@@ -39,6 +37,3 @@
   background-color: rgb(30, 187, 114);
 }
 
-.button:active {
-  top: 430px;
-}

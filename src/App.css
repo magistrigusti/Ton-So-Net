@@ -13,19 +13,21 @@ a:hover  {
   display: grid; 
   grid-template-areas: 
     "h h"
-    "n c";
+    "n c"
+    "f f";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 
   background: rgb(14,159,131);
-  background: linear-gradient(90deg, rgb(19, 170, 139) 4%, rgba(24,246,255,1) 49%, rgb(28, 139, 224) 94%);
+  background: linear-gradient(90deg, rgb(19, 170, 139) 4%, rgb(24, 255, 155) 49%, rgb(28, 139, 224) 94%);
 }
 
 .content {
   grid-area: c;
   border: 1px solid #fff;
   border-radius: 18px;
-  background: linear-gradient(90deg, rgb(51, 223, 189) 4%, rgb(72, 211, 216) 49%, rgb(95, 170, 227) 94%);
+  background: rgb(14,159,131);
+  background: linear-gradient(90deg, rgb(51, 223, 189) 4%, rgb(72, 216, 120) 49%, rgb(95, 170, 227) 94%);
 }
 
 

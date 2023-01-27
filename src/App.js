@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Nav from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Profile from './components/Profile/Profile';
+import Footer from './components/Footer/Footer';
 
 
 const App = (props) => {
@@ -20,6 +21,7 @@ const App = (props) => {
           <Route path="/news" element={<News />} />
         </Routes>
         
+        <Footer />
       </div>
   );
 }

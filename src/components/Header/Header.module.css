@@ -3,6 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .header_img {
@@ -11,7 +13,13 @@
 }
 
 .header_title {
-  padding: 550px;
+  padding: 50px;
+  text-align: center; 
   color: rgb(241, 188, 115);
+}
+
+.title {
+  font-size: 40px;
+  font-family: italic;
 }
 
