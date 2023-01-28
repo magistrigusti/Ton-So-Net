@@ -10,14 +10,15 @@ import Footer from './components/Footer/Footer';
 
 
 const App = (props) => {
+
   return (
       <div className = "app-wrapper">
         <Header />
         <Nav />
         
         <Routes className = 'content'>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/dialogs" element={<Dialogs />} />
+          <Route path="/profile" element={<Profile state={props.state.profilePage} />} />
+          <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />} />
           <Route path="/news" element={<News />} />
         </Routes>
         

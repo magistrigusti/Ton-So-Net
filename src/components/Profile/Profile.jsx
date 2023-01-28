@@ -4,11 +4,12 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 const Profile = (props) => {
+
   return(
     <div>
       <ProfileInfo />
 
-      <MyPosts />
+      <MyPosts postsData={props.state.postsData} />
     </div>
   );
 }
