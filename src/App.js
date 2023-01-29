@@ -18,9 +18,9 @@ const App = (props) => {
         <Nav />
         
         <Routes className = 'content'>
-          <Route path="/profile" element={<Profile state={state.profilePage} />} />
+          <Route path="/profile" element={<Profile state={state.profilePage} addPost={props.addPost} />} />
           <Route path="/dialogs" element={<Dialogs state={state.dialogsPage} />} />
-          <Route path="/news" element={<News />} />
+          <Route path="/news" element={<News state={state.newsPage} />} />
         </Routes>
         
         <Footer />
