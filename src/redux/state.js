@@ -18,10 +18,10 @@ let state = {
     ],
 
     messagesData: [
-      { id: 1, text: 'Hey' },
-      { id: 2, text: 'Hello Andry' },
-      { id: 3, text: 'How are you Dmittrii' },
-      { id: 4, text: 'i,m fune, and you?' }
+      { id: 1, text: 'Hey', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
+      { id: 2, text: 'Hello Andry', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" },
+      { id: 3, text: 'How are you Dmittrii', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
+      { id: 4, text: 'i,m fune, and you?', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" }
     ]
   }
 

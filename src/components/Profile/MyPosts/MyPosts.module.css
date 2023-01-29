@@ -12,10 +12,12 @@
 
 .array_posts {
   display: block;
+  margin-top: -200px;
 }
 
 .input_title {
   color: #fff;
+  padding-top: 10px;
 }
 
 .input_post {
@@ -28,8 +30,8 @@
   position: absolute;
   padding: 8px 14px;
   border-radius: 8px;
-  border-color: rgb(30, 187, 114);
-  background-color: rgba(30, 187, 114, 0.76);
+  border-color: rgb(145, 187, 30);
+  background-color: rgba(59, 187, 30, 0.76);
 }
 
 .button:hover {

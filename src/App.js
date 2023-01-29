@@ -7,6 +7,7 @@ import Nav from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
+import state from './redux/state';
 
 
 const App = (props) => {
@@ -17,8 +18,8 @@ const App = (props) => {
         <Nav />
         
         <Routes className = 'content'>
-          <Route path="/profile" element={<Profile state={props.state.profilePage} />} />
-          <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />} />
+          <Route path="/profile" element={<Profile state={state.profilePage} />} />
+          <Route path="/dialogs" element={<Dialogs state={state.dialogsPage} />} />
           <Route path="/news" element={<News />} />
         </Routes>
         
