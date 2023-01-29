@@ -17,12 +17,12 @@ const Post = (props) => {
               <div className = {classes.like_wrapper}>
                 <span>
                   <img className = {classes.like_img} src="https://cdn-icons-png.flaticon.com/512/4207/4207285.png" alt=""></img>
-                  {props.like}
+                  {props.likesCount}
                 </span>
                 <br></br>
                 <span>
                   <img className = {classes.like_img} src="https://cdn-icons-png.flaticon.com/512/2665/2665148.png" alt=""></img>
-                  {props.dislike}
+                  {props.dislikesCount}
                 </span>
               </div>
             </div>
