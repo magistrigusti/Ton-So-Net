@@ -13,13 +13,17 @@ export const MyPosts = (props) => {
       newPostElement.current.value = '';
   }
 
+  let onPostChange = () => {
+
+  }
+
   return (
     <div>
       
       <div className={classes.posts}>
         <div className={classes.input_wrapper}>
           <h5 className={classes.input_title}>New Post</h5>
-          <textarea ref={newPostElement} className={classes.input_post} placeholder="Add Post"></textarea>
+          <textarea onChange={onPostChange} value={props.newPostText} ref={newPostElement} className={classes.input_post} placeholder="Add Post"></textarea>
           <button className={classes.button} onClick={ addPost }>Send</button>
         </div>
         

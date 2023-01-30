@@ -6,6 +6,9 @@ let state = {
       { id: 1, message: 'Hi, how are you?', likesCount: '28', dislikesCount: 2 },
       { id: 2, message: 'It is a social network on the blockhain', likesCount: 22, dislikesCount: 1 },
       { id: 3, message: 'Are you ready', likesCount: 30, dislikesCount: 0 }
+    ],
+    newPostText: [
+      'TonCoin'
     ]
   },
 
@@ -45,6 +48,17 @@ export let addPost = (postMessage) => {
   };
 
   state.profilePage.postsData.push(newPost);
+  rerenderEntireTree(state);
+}
+
+export let addMessage = (userMessage) => {
+  let newMessage = {
+    id: 8,
+    text: userMessage,
+    src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png"
+  };
+
+  state.dialogsPage.messagesData.push(newMessage);
   rerenderEntireTree(state);
 }
 
