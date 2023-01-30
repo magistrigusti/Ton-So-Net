@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from '../render.js';
+
 let state = {
   profilePage: {
     postsData: [
@@ -27,7 +29,8 @@ let state = {
 
   newsPage: {
     newsData: [
-      {id: 1, text: 'Итоги недели: Binance обвинили в обработке транзакций Bitzlato, а у Бэнкмана-Фрида конфисковали почти $700 млн'},
+      {id: 1, title: 'Cripto News', text: 'Итоги недели: Binance обвинили в обработке транзакций Bitzlato, а у Бэнкмана-Фрида конфисковали почти $700 млн', src: "https://cnews24.ru/uploads/08f/08f8f84ab0ddc6016e441b2ea24896b70e453cab.webp"},
+      {id: 2, title: 'Cripto News', text: 'XRP Price Prediction – Can XRP Go to $5 This Year?', src: 'https://v2.cimg.co/news/102948/253724/responsive-images/xrp___media_library_original_1735_956.jpg'}
     ],
   }
 
@@ -35,14 +38,14 @@ let state = {
 
 export let addPost = (postMessage) => {
   let newPost = {
-    id: 5,
+    id: 4,
     message: postMessage,
     lekesCount: 4,
     dislekesCount: 0
   };
 
   state.profilePage.postsData.push(newPost);
-  
+  rerenderEntireTree(state);
 }
 
 export default state;

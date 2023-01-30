@@ -5,9 +5,9 @@ const NewsBlock = (props) => {
   
   return (
     <div>
-      <h3>News title</h3>
+      <h3>{props.title}</h3>
       <div>
-        <img className={classes.img} src="https://cnews24.ru/uploads/08f/08f8f84ab0ddc6016e441b2ea24896b70e453cab.webp" alt="" />
+        <img className={classes.img} src={props.src} alt="" />
       </div>
       <div>{props.text}</div>
     </div>

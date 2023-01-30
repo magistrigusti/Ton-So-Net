@@ -2,11 +2,12 @@
 import './index.css';
 import { rerenderEntireTree } from './render';
 import reportWebVitals from './reportWebVitals';
+import state from './redux/state';
 
 
 
 
-rerenderEntireTree();
+rerenderEntireTree(state);
 
 
 
