@@ -7,9 +7,7 @@ let state = {
       { id: 2, message: 'It is a social network on the blockhain', likesCount: 22, dislikesCount: 1 },
       { id: 3, message: 'Are you ready', likesCount: 30, dislikesCount: 0 }
     ],
-    newPostText: [
-      'TonCoin'
-    ]
+    newPostText: 'TonCoin',
   },
 
   dialogsPage: {
@@ -59,6 +57,11 @@ export let addMessage = (userMessage) => {
   };
 
   state.dialogsPage.messagesData.push(newMessage);
+  rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 }
 
