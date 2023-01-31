@@ -18,12 +18,12 @@ const App = (props) => {
         <Nav />
         
         <Routes className = 'content'>
-          <Route path="/profile" element={<Profile state={state.profilePage} profilePage={props.state.profilePage} 
+          <Route path="/profile" element={<Profile state={props.state.profilePage} profilePage={props.state.profilePage} 
                                   addPost={props.addPost} 
                                   updateNewPostText={props.updateNewPostText} />} />
-          <Route path="/dialogs" element={<Dialogs state={state.dialogsPage} 
+          <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} 
                                 addMessage={props.addMessage} />} />
-          <Route path="/news" element={<News state={state.newsPage} />} />
+          <Route path="/news" element={<News state={props.state.newsPage} />} />
         </Routes>
         
         <Footer />
