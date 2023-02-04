@@ -1,3 +1,7 @@
+const ADD_POST = "ADD-POST";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
 let store = {
   _state: {
     profilePage: {
@@ -24,7 +28,8 @@ let store = {
         { id: 2, text: 'Hello Andry', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" },
         { id: 3, text: 'How are you Dmittrii', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
         { id: 4, text: 'i,m fune, and you?', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" }
-      ]
+      ],
+      newMessageText: 'TonCoin',
     },
 
     newsPage: {
@@ -41,54 +46,87 @@ let store = {
   getState() {
     return this._state;
   },
-  subscribe(observer) {
-    this._callSubscriber = observer;
-  },
-  addPost() {
+  sunscribe(observer) {
+  this._callSubscriber = observer;
+},
+addPost() {
+  let newPost = {
+    id: 4,
+    message: this._state.profilePage.newPostText,
+    lekesCount: 4,
+    dislikesCount: 0
+  };
+
+  this._state.profilePage.postsData.push(newPost);
+  this._state.profilePage.newPostText = '';
+  this._callSubscriber(this._state);
+},
+addMessage() {
+  let newMessage = {
+    id: 8,
+    text: this._state.dialogsPage.newMessageText,
+    src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png"
+  };
+
+  this._state.dialogsPage.messagesData.push(newMessage);
+  this._state.dialogsPage.newMessageText = '';
+  this._callSubscriber(this._state);
+},
+updateNewPostText(newText) {
+  this._state.profilePage.newPostText = newText;
+  this._callSubscriber();
+},
+updateNewDialogsText(newText) {
+  this._state.dialogsPage.newMessageText = newText;
+  this._callSubscriber(this._state)
+},
+dispatch(action) {
+  if (action.type === 'ADD-POST') {
     let newPost = {
       id: 4,
       message: this._state.profilePage.newPostText,
       likesCount: 4,
       dislikesCount: 0
     };
-
     this._state.profilePage.postsData.push(newPost);
     this._state.profilePage.newPostText = '';
     this._callSubscriber(this._state);
-  },
-  addMessage() {
-    let newMessage = {
-      id: 8,
-      text: this.userMessage,
-      src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png"
-    };
-
-    this._state.dialogsPage.messagesData.push(newMessage);
+  } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    this._state.profilePage.newPostText = action.newText;
     this._callSubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber();
-  },
-  dispatch(action) {
-    if (action.type === 'ADD-POST') {
-      let newPost = {
-        id: 4,
-        message: this._state.profilePage.newPostText,
-        likesCount: 4,
-        dislikesCount: 0
-      };
-
-      this._state.profilePage.postsData.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber();
-
-    }
   }
 
+  if (action.type === 'ADD-MESSAGE') {
+    let newMessage ={
+      id: 9,
+      message: this._state.dialogsPage.newMessageText,
+      src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png"
+    };
+    this._state.dialogsPage.messagesData.push(newMessage);
+    this._state.dialogsPage.newMessageText = '';
+    this._callSubscriber(this._state);
+  } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+    this._state.dialogsPage.newMessageText = action.newText;
+    this._callSubscriber(this._state);
+  }
+},
+}
+
+export const addPostActionCreator = () => {
+  return {
+    type: ADD_POST
+  }
+}
+export const updateNewPostTextActionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT,
+    newText: text
+  }
+}
+export const addMessageActionCreator = () => {
+  return {
+    type: ADD_MESSAGE
+  }
 }
 
 window.store = store;
