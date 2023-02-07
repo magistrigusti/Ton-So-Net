@@ -1,5 +1,4 @@
 import React from 'react';
-import Settings from './../Settings/Settings';
 import classes from './Header.module.css';
 
 
@@ -10,8 +9,6 @@ const Header = () => {
         <div className = {classes.header_title}>
           <h2 className = {classes.title}>Ton-So-Net</h2>
         </div>
-
-        <Settings />
     </header>
   );
 }

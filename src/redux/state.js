@@ -47,10 +47,10 @@ let store = {
   getState() {
     return this._state;
   },
-  sunscribe(observer) {
+  subscribe(observer) {
   this._callSubscriber = observer;
 },
-addPost() {
+_addPost() {
   let newPost = {
     id: 4,
     message: this._state.profilePage.newPostText,
@@ -62,7 +62,7 @@ addPost() {
   this._state.profilePage.newPostText = '';
   this._callSubscriber(this._state);
 },
-addMessage() {
+_addMessage() {
   let newMessage = {
     id: 8,
     text: this._state.dialogsPage.newMessageText,
