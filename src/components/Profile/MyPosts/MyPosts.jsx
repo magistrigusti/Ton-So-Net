@@ -11,13 +11,13 @@ export const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
 
-  let onPostChange = () => {
+  let onPostChange = (props) => {
     let text = newPostElement.current.value;
     let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.store.dispatch(action);
   }
 
-  let addPost = () => {
+  let addPost = (props) => {
       props.dispatch(addPostActionCreator);
   }
 
@@ -31,7 +31,7 @@ export const MyPosts = (props) => {
           <textarea className={classes.input_post}
                     ref={newPostElement}
                     placeholder='Add Post'
-                    value={props.newPostText}
+                    defaultValue={props.newPostText}
                     onChange={onPostChange}>
           </textarea>
           <button className={classes.button} onClick={ addPost }>Send</button>
@@ -39,7 +39,7 @@ export const MyPosts = (props) => {
         
         <div className={classes.array_posts}>
           <h3 className={classes.posts_title}>My Posts</h3>
-          {postsElements}
+          { postsElements }
           <br className={classes.br} />
         </div>
       </div>

@@ -2,23 +2,22 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import classes from './Dialogs.module.css';
+import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/state';
 
 const Dialogs = (props) => {
-  let dialogsElements = props.state.dialogsData.map(dialog => <DialogItem key={dialog.id} name={dialog.name} src={dialog.src} /> );
+  let state = props.store.getState().dialogsPage;
 
-  let messagesElements = props.state.messagesData.map(message => <Message key={message.id} message={message.text} src={message.src} /> );
+  let dialogsElements = state.dialogsData.map(dialog => <DialogItem key={dialog.id} name={dialog.name} src={dialog.src} /> );
+  let messagesElements = state.messagesData.map(message => <Message key={message.id} message={message.text} src={message.src} /> );
+  let newMessageBody = state.newMessageBody;
 
-  let newMessageElement = React.createRef();
-
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    let action = {type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text};
-    props.dispatch(action);
+  let onSendMessageClick = () => {
+    props.store.dispatch(sendMessageCreator());
   }
 
-  let addMessage = () => {
-    props.dispatch({type: 'ADD-MESSAGE'});
-    
+  let onNewMessageChange = (event) => {
+    let body = event.target.value;
+    props.store.dispatch(updateNewMessageBodyCreator(body));
   }
 
   return (
@@ -30,15 +29,28 @@ const Dialogs = (props) => {
       <div className={classes.messages}>
         <div className={classes.messages_items}>
           { messagesElements }
+
+          <div>
+            <div>
+              <textarea 
+                  onChange={ onNewMessageChange }
+                  defaultValue={ newMessageBody }
+                  placeholder="Enter your message"></textarea>
+            </div>
+
+            <div>
+              <button onClick={ onSendMessageClick }>Send</button>
+            </div>
+          </div>
         </div>
-      <div>
+      {/* <div>
           <textarea className={classes.input} 
                     ref={ newMessageElement } 
                     placeholder='Add Your Message' 
                     value={props.newMessageText } 
                     onChange={onMessageChange}></textarea>
           <button className={classes.button} onClick={ addMessage }>Add Message</button>
-        </div>
+        </div> */}
       </div>
 
       
