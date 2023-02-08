@@ -50,18 +50,7 @@ let store = {
   subscribe(observer) {
   this._callSubscriber = observer;
 },
-_addPost() {
-  let newPost = {
-    id: 4,
-    message: this._state.profilePage.newPostText,
-    lekesCount: 4,
-    dislikesCount: 0
-  };
 
-  this._state.profilePage.postsData.push(newPost);
-  this._state.profilePage.newPostText = '';
-  this._callSubscriber(this._state);
-},
 dispatch(action) {
   if ( action.type === ADD_POST) {
     let newPost = {
@@ -97,7 +86,6 @@ export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 export const updateNewMessageBodyCreator = (text) =>
     ({type: UPDATE_NEW_MESSAGE_BODY, body: text});
 
-
+export default store;
 window.store = store;
 
-export default store;

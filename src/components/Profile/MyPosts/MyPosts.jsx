@@ -11,20 +11,19 @@ export const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
 
-  let onPostChange = (props) => {
+  let onPostChange = () => {
     let text = newPostElement.current.value;
     let action = updateNewPostTextActionCreator(text);
-    props.store.dispatch(action);
+    props.dispatch(action);
   }
 
-  let addPost = (props) => {
-      props.dispatch(addPostActionCreator);
+  let addPost = () => {
+      props.dispatch(addPostActionCreator());
   }
 
 
   return (
     <div>
-      
       <div className={classes.posts}>
         <div className={classes.input_wrapper}>
           <h5 className={classes.input_title}>New Post</h5>
