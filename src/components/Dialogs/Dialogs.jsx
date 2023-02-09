@@ -2,7 +2,7 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import classes from './Dialogs.module.css';
-import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/state';
+import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/dialogs-reducer.js';
 
 const Dialogs = (props) => {
   let state = props.store.getState().dialogsPage;
@@ -32,25 +32,17 @@ const Dialogs = (props) => {
 
           <div>
             <div>
-              <textarea 
+              <textarea className={classes.input}
                   onChange={ onNewMessageChange }
                   defaultValue={ newMessageBody }
                   placeholder="Enter your message"></textarea>
             </div>
 
             <div>
-              <button onClick={ onSendMessageClick }>Send</button>
+              <button className={classes.button} onClick={ onSendMessageClick }>Send</button>
             </div>
           </div>
         </div>
-      {/* <div>
-          <textarea className={classes.input} 
-                    ref={ newMessageElement } 
-                    placeholder='Add Your Message' 
-                    value={props.newMessageText } 
-                    onChange={onMessageChange}></textarea>
-          <button className={classes.button} onClick={ addMessage }>Add Message</button>
-        </div> */}
       </div>
 
       
