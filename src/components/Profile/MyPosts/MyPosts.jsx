@@ -18,7 +18,8 @@ export const MyPosts = (props) => {
   }
 
   let addPost = () => {
-      props.dispatch(addPostActionCreator());
+    props.addPost();
+      /* props.dispatch(addPostActionCreator()); */
   }
 
 
