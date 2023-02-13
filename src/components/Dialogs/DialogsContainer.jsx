@@ -5,8 +5,7 @@ import { sendMessageCreator, updateNewMessageBodyCreator} from '../../redux/dial
 
 const DialogsContainer = () => {
 
-  return (
-    <StoreContext.Consumer> {
+  return (<StoreContext.Consumer>{
       (store) => {
         let state = store.getState().dialogsPage;
         let onSendMessageClick = () => {
@@ -15,12 +14,11 @@ const DialogsContainer = () => {
         let onNewMessageChange = (body) => {
           store.dispatch(updateNewMessageBodyCreator(body));
         }
-        return (
-          <Dialogs updateNewMessageBody={onNewMessageChange} sendMessage={onSendMessageClick} dialogsPage={state} />
-        )
+
+        return(
+          <Dialogs updateNewMessageBody={onNewMessageChange} sendMessage={onSendMessageClick} dialogsPage={state} />)
       }
-    }
-    </StoreContext.Consumer>
+    }</StoreContext.Consumer>
   )
 }
 
