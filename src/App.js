@@ -24,7 +24,7 @@ const App = (props) => {
           <Route path="/dialogs" 
                 element={ <DialogsContainer store={props.store} /> }/>
                                   
-          <Route path="/news" element={<News state={props.state.newsPage} />} />
+          {/* <Route path="/news" element={<News state={props.store.newsPage} />} /> */}
         </Routes>
         
         <Footer />
