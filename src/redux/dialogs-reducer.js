@@ -21,15 +21,22 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
+    let stateCopy = {
+            ...state,
+            messagesData: [...state.messagesData]
+            };
+
     switch (action.type) {
-        case SEND_MESSAGE:
-            let body = state.newMessageBody;
-            state.newMessageBody = '';
-            state.messagesData.push({ id: 9, text: body, src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" });
-            return state;
-        case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
-            return state;
+        case SEND_MESSAGE: {
+            let body = stateCopy.newMessageBody;
+            stateCopy.messagesData = [...state.messagesData];
+            stateCopy.messagesData.push({ id: 9, text: body, src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" });
+            stateCopy.newMessageBody = '';
+            return stateCopy;}
+        case UPDATE_NEW_MESSAGE_BODY:{
+            let stateCopy = {...state}
+            stateCopy.newMessageBody = action.body;
+            return stateCopy;}
         default:
             return state;
     }
