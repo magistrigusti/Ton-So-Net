@@ -6,7 +6,7 @@ import { addPostActionCreator, updateNewPostTextActionCreator} from '../../../re
 let mapStateToProps = (state) => {
   return {
     postsData: state.profilePage.postsData,
-    newPostText: state.profilePage.NewPostText
+    newPostText: state.profilePage.newPostText
   }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -20,6 +20,6 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 export default MyPostsContainer;
+
