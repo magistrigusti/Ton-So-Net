@@ -1,47 +1,22 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const avatarLink = "https://cdn-icons-png.flaticon.com/512/4202/4202836.png";
+import { v1 } from 'uuid';
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
-    dialogsData: [
-        { id: 1, name: 'Maria', src: "https://cdn-icons-png.flaticon.com/512/4202/4202832.png" },
-        { id: 2, name: 'Andry', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
-        { id: 3, name: 'Dmitrii', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" },
-        { id: 4, name: 'Sasha', src: "https://cdn-icons-png.flaticon.com/512/9416/9416234.png" },
-        { id: 5, name: 'Adi', src: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png" },
-        { id: 6, name: 'Ivan', src: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png" }
-    ],
+  postData: [
+    {id: v1(), message: 'Hi, how are you?', likesCount: '28', dislikesCount: 2},
+    {id: v1(), message: 'It is a social network on the blockchain Ton', likesCount: 22, dislikesCount: 1},
+    {id: v1(), message: 'Are you ready?', likesCount: 30, dislikesCount: 0}
+  ],
+  newPostText: '',
+};
 
-    messagesData: [
-        { id: 1, text: 'Hey', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
-        { id: 2, text: 'Hello Andry', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" },
-        { id: 3, text: 'How are you Dmittrii', src: "https://cdn-icons-png.flaticon.com/512/4202/4202839.png" },
-        { id: 4, text: 'i,m fune, and you?', src: "https://cdn-icons-png.flaticon.com/512/4202/4202836.png" }
-    ],
-    newMessageBody: '',
-}
-
-const dialogsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-          return {
-            ...state,
-            newMessageBody: action.body
-          }
-        case SEND_MESSAGE:
-            let body = state.newMessageBody;
-            return {
-              ...state,
-              newMessageBody: '',
-              messagesData: [...state.messagesData, {id: 9, text: body, src: avatarLink}]
-            }
-        default:
-            return state;
+const profileReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_POST: {
+      let newPost
     }
+    default:
+  }
 }
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
-export const updateNewMessageBodyCreator = (text) =>
-    ({ type: UPDATE_NEW_MESSAGE_BODY, body: text });
-
-export default dialogsReducer;
