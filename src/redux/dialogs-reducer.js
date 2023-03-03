@@ -30,21 +30,21 @@ const dialogsReducer = (state = initialState, action) => {
                 ...state,
                 newMessageBody: action.body
             }
-            case SEND_MESSAGE:
-                let body = state.newMessageBody;
-                return {
-                    ...state,
-                    newMessageBody: '',
-                    messagesData: [...state.messagesData, {id: v1(), text: body, src: avatarLink}]
-                }
-            default:
-                return state;
+        case SEND_MESSAGE:
+            let body = state.newMessageBody;
+            return {
+                ...state,
+                newMessageBody: '',
+                messagesData: [...state.messagesData, { id: v1(), text: body, src: avatarLink }]
+            }
+        default:
+            return state;
     }
 }
 
-export const sendMessageCreator = () => ({type: SEND_MESSAGE});
-export const updateNewMessageBodyCreator = (text) => 
-    ({type: UPDATE_NEW_MESSAGE_BODY, body: text});
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const updateNewMessageBodyCreator = (text) =>
+    ({ type: UPDATE_NEW_MESSAGE_BODY, body: text });
 
 export default dialogsReducer;
 
