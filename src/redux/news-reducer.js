@@ -1,4 +1,8 @@
 
+
+/* const ADD_NEWS = 'ADD-NEWS';
+const UPDATE_NEWS_BODY = 'UPDATE-NEWS-BODY'; */
+
 let initialState = {
   newsData: [
         { id: 1, title: 'Cripto News', text: 'Итоги недели: Binance обвинили в обработке транзакций Bitzlato, а у Бэнкмана-Фрида конфисковали почти $700 млн', src: "https://cnews24.ru/uploads/08f/08f8f84ab0ddc6016e441b2ea24896b70e453cab.webp" },
@@ -13,4 +17,10 @@ const newsReducer = (state = initialState, action) => {
   }
 }
 
+/* export const addNewsCreator = () => ({type: ADD_NEWS});
+export const updateNewsBodyCreator = (news) => 
+  ({type: UPDATE_NEWS_BODY, body: news});
+ */
+
 export default newsReducer;
+
