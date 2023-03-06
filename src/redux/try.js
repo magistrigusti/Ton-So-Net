@@ -25,7 +25,7 @@ const usersReducer = (state = initialState, action) => {
           return user;
         })
       }
-    case UNFOLLOW: 
+    case UNFOLLOW:
       return {
         ...state,
         users: state.users.map(user => {
@@ -36,11 +36,11 @@ const usersReducer = (state = initialState, action) => {
         })
       }
     case SET_USERS:
-      return {
-        ...state,
-        users: [...state.users, ...action.users]
-      }
-    default: 
+    return {
+      ...state,
+      users: [...state.users, ...action.users]
+    }
+    default:
       return state;
   }
 }
@@ -48,6 +48,5 @@ const usersReducer = (state = initialState, action) => {
 export const followActionCreator = (userId) => ({type: FOLLOW, userId});
 export const unfollowActionCreator = (userId) => ({type: UNFOLLOW, userId});
 export const setUsersActionCreator = (users) => ({type: SET_USERS, users});
-
 export default usersReducer;
 
