@@ -27,7 +27,7 @@ const App = (props) => {
           <Route path="/news" 
                 element={<News store={props.store} />} />
 
-          <Route path="/users" element={<div>Users</div>} />
+          <Route path="/users" element={<UsersContainer />} />
         </Routes>
         
         <Footer />
