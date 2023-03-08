@@ -7,6 +7,7 @@ import News from './components/News/News';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 
