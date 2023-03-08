@@ -1,0 +1,29 @@
+.avatar {
+  padding: 5px;
+}
+
+.avatar_img {
+  width: 50px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.user_card {
+  display: flex;
+  padding: 10px;
+  padding-left: 50px;
+}
+
+.user_name {
+  padding: 10px;
+  padding-left: 30px;
+  color: #fff;
+}
+
+.user_location {
+  padding: 10px;
+  padding-left: 200px;
+}
