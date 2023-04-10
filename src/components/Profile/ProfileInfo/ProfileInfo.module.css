@@ -6,15 +6,21 @@
 .profile {
   display: flex;
   align-items: center;
-  border: 1px solid #fff;
 }
 
 .avatar_img {
-  width: 100px;
-  padding: 50px;
+  height: 100px;
+  border: 1px solid #0088CC;
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 0px rgba(#0088CC);
+  margin: 50px;
 }
 
 .profile_description {
-  color: #FFF;
+  color: #0088CC;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
   text-transform: uppercase
 }

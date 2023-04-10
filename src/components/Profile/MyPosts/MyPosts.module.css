@@ -1,5 +1,6 @@
 .posts_title {
-  color: rgb(237, 239, 104);
+  color: #0088cce7;
+  
   font-size: 20px;
   text-align: center;
 }
@@ -16,7 +17,7 @@
 }
 
 .input_title {
-  color: #fff;
+  color: #F7F9FB;
   padding-top: 10px;
 }
 
@@ -30,12 +31,12 @@
   position: absolute;
   padding: 8px 14px;
   border-radius: 8px;
-  border-color: rgb(145, 187, 30);
-  background-color: rgba(59, 187, 30, 0.76);
+  border-color: #1f8ec5;
+  background-color: #0088cce7;
 }
 
 .button:hover {
-  transform: color 0.4s all;
-  background-color: rgb(30, 187, 114);
+  transform: color 0.6s linear;
+  background-color: rgb(30, 118, 211);
 }
 

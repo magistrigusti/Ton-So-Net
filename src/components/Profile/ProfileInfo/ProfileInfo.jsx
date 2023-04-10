@@ -6,7 +6,7 @@ const ProfileInfo = (props) => {
     <div className={classes.contaner}>
       <div className = {classes.profile}>
         <div className = {classes.avatar_wrapper}>
-          <img className = {classes.avatar_img} src="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=740&t=st=1672668960~exp=1672669560~hmac=36ac6cccafffa1d286104eb1c759db7a171bb136036368801652784523f43138" alt=""></img>
+          <img className = {classes.avatar_img} src="https://pbs.twimg.com/media/DbyjLh4W0AA3Ue-?format=jpg&name=large" alt=""></img>
         </div>
 
         <div className = {classes.profile_description}>
