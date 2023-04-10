@@ -7,9 +7,14 @@
   padding-top: 30px;
 }
 
+.img_wrapper {
+  padding: 10px;
+}
+
 .header_img {
   width: 75px;
-  padding: 40px 20px;
+  border: 1px solid blue;
+  border-radius: 50%;
 }
 
 .header_title {
