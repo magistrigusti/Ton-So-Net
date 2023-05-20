@@ -6,8 +6,8 @@ import userPhoto from '../../assets/images/user-image.jpg';
 let Users = (props) => {
 
   if (props.users.length === 0) {
-    axios.get('https://social-network.samuraijs.com/api/1.0/users')
-      .then(response => {
+    const apiUrl = 'https://social-network.samuraijs.com/api/1.0/users';
+    axios.get(apiUrl).then(response => {
       props.setUsers(response.data.items);
     });
   }
@@ -19,7 +19,7 @@ let Users = (props) => {
           <div className={classes.user_card} key={user.id}>
             <span>
               <div className={classes.avatar}>
-                <img className={classes.avatar_img} src={user.photos.small !=null ? user.photos.samll : userPhoto } alt=''/>
+                <img className={classes.avatar_img} src={user.photos.small !=null ? user.photos.small : userPhoto } alt=''/>
               </div>
               <div className={classes.btn_wrapper}>
                 {user.followed ?
