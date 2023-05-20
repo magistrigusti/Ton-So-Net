@@ -1,17 +1,17 @@
 import React from 'react';
-import * as axios from 'axios';
+import axios from 'axios';
 import classes from './Users.module.css';
+import userPhoto from '../../assets/images/user-image.jpg';
 
 let Users = (props) => {
 
   if (props.users.length === 0) {
-    debugger;
-    axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+    axios.get('https://social-network.samuraijs.com/api/1.0/users')
+      .then(response => {
       props.setUsers(response.data.items);
     });
-    
   }
-
+  
   return (
     <div>
       {
@@ -19,7 +19,7 @@ let Users = (props) => {
           <div className={classes.user_card} key={user.id}>
             <span>
               <div className={classes.avatar}>
-                <img className={classes.avatar_img} src={user.photoUrl} alt=''/>
+                <img className={classes.avatar_img} src={user.photos.small !=null ? user.photos.samll : userPhoto } alt=''/>
               </div>
               <div className={classes.btn_wrapper}>
                 {user.followed ?
