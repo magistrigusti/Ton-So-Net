@@ -16,7 +16,7 @@ class Users extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={getUsers}>Get Users</button>
+        <button onClick={this.getUsers}>Get Users</button>
         {
           this.props.users.map(user =>
             <div className={classes.user_card} key={user.id}>
