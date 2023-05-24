@@ -27,3 +27,9 @@
   padding: 10px;
   padding-left: 200px;
 }
+
+.selectedPage {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}

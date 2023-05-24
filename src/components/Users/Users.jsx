@@ -4,22 +4,32 @@ import classes from './Users.module.css';
 import userPhoto from '../../assets/images/user-image.jpg';
 
 class Users extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    
-      const apiUrl = 'https://social-network.samuraijs.com/api/1.0/users';
-      axios.get(apiUrl).then( response => {
-        this.props.setUsers(response.data.items);
-      });
-    
+  componentDidMount() {
+    const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?page=${
+        this.props.currentPage}&count=${this.props.pageSize}`;
+    axios.get(apiUrl).then(response => {
+      this.props.setUsers(response.data.items);
+    })
   }
 
-  render() {
+  render(props) {
+
+    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+    let pages = [];
+
+    for (let i=1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
+
     return (
       <div>
-        <button onClick={this.getUsers}>Get Users</button>
+        <div>
+          { pages.map(page => {
+              return <span className={this.props.currentPage === page && classes.selectedPage}>{page}</span>
+            })
+          }
+        </div>
+        
         {
           this.props.users.map(user =>
             <div className={classes.user_card} key={user.id}>
@@ -37,7 +47,7 @@ class Users extends React.Component {
                     >Unfollow</button>
                     :
                     <button className={classes.btn}
-                      onClick={() => { this.props.follow(user.id)}}
+                      onClick={() => { this.props.follow(user.id) }}
                     >Follow</button>
                   }
                 </div>
