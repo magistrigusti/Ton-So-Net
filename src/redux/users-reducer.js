@@ -12,9 +12,9 @@ let initialState = {
     {id: 5, photoUrl: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png", followed: false, fullName: 'Adi', status: 'i am a user', location: {city: 'Tel-Aviv', country: 'Izrael'}},
     {id: 6, photoUrl: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png", followed: false, fullName: 'Ivan', status: 'i am a user', location: {city: 'Mscow', country: 'Russia'}} */
   ],
-  pageSize: 3,
-  totalUsersCount: 20,
-  currentPage: 1
+  pageSize: 5,
+  totalUsersCount: 21,
+  currentPage: 4
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -47,8 +47,8 @@ const usersReducer = (state = initialState, action) => {
     
     case SET_CURRENT_PAGE:
       return {
-        ...state,
-        users: [...state.currentPage, ...action.currentPage]
+        ...state, 
+        currentPage: action.currentPage
       }
     default:
       return state;
@@ -58,5 +58,6 @@ const usersReducer = (state = initialState, action) => {
 export const followActionCreator = (userId) => ({ type: FOLLOW, userId });
 export const unfollowActionCreator = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsersActionCreator = (users) => ({ type: SET_USERS, users });
+export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 
 export default usersReducer;

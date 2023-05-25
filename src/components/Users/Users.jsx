@@ -6,7 +6,16 @@ import userPhoto from '../../assets/images/user-image.jpg';
 class Users extends React.Component {
   componentDidMount() {
     const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?page=${
-        this.props.currentPage}&count=${this.props.pageSize}`;
+      this.props.currentPage}&count=${this.props.pageSize
+      }`;
+    axios.get(apiUrl).then(response => {
+        this.props.setUsers(response.data.items);
+    })
+  }
+
+  onPostChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`;
     axios.get(apiUrl).then(response => {
       this.props.setUsers(response.data.items);
     })
@@ -25,7 +34,9 @@ class Users extends React.Component {
       <div>
         <div>
           { pages.map(page => {
-              return <span className={this.props.currentPage === page && classes.selectedPage}>{page}</span>
+              return <span className={this.props.currentPage === page && classes.selectedPage}
+                        onClick={(event) => {this.onPostChanged(page)}}
+                      >{page}</span>
             })
           }
         </div>
