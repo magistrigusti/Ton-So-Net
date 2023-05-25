@@ -10,6 +10,7 @@ class Users extends React.Component {
       }`;
     axios.get(apiUrl).then(response => {
         this.props.setUsers(response.data.items);
+        this.props.setTotalUsersCount(response.data.totalCount);
     })
   }
 
