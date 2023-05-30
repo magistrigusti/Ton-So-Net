@@ -4,28 +4,55 @@ import classes from './Users.module.css';
 import userPhoto from '../../assets/images/user-image.jpg';
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const apiUrl = 'https://social-network.samuraijs.com/api/1.0/users';
+  componentDidMount() {
+    const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?page=${
+      this.props.currentPage}&count=${this.props.pageSize
+    }`;
     axios.get(apiUrl).then(response => {
       this.props.setUsers(response.data.items);
-    });
+      this.props.setTotalUsersCount(response.data.totalCount);
+    })
   }
 
-  render () {
+  onPostChange = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?pages=${
+      pageNumber}&count=${this.props.pageSize
+    }`;
+    axios.get(apiUrl).then(response => {
+      this.props.setUsers(response.data.items); 
+    })
+  }
+
+  render (props) {
+    let pagesCount = Math.celi(
+      this.props.totalUsersCount / this.props.pageSize
+    );
+    let pages = [];
+
+    for (let i=1; i<=pagesCount; i++) {
+      pages.push(i);
+    }
     return (
       <div>
-        <button onClick={this.getUsers}>Get Users</button>
+        <div>
+          {pages.map(page => {
+            return (
+              <span className={this.props.currentPage === page && classes.selectedPage}
+                onClick={(event) => {this.onPostChange(page)}}
+              >{page}</span>
+            )
+          })}
+        </div>
+
         {
-          this.props.users.map(user =>
+          this.props.users.map(user => 
             <div className={classes.user_card} key={user.id}>
               <span>
                 <div className={classes.avatar}>
                   <img className={classes.avatar_img}
-                    src={user.photos.small != null ? user.photos.smal :
-                    userPhoto} alt=""
-                  />
+                    src={user.phots.small != null ? user.photos.small : userPhoto}
+                  alt="" />
                 </div>
 
                 <div className={classes.btn_wrapper}>
@@ -34,22 +61,12 @@ class Users extends React.Component {
                       <button className={classes.btn}
                         onClick={() => {this.props.unfollow(user.id)}}
                       >Unfollow</button>
-                      :
+                    :
                       <button className={classes.btn}
                         onClick={() => {this.props.follow(user.id)}}
                       >Follow</button>
                   }
                 </div>
-              </span>
-
-              <span className={classes.user_name}>
-                <div>{user.name}</div>
-                <div>{user.status}</div>
-              </span>
-
-              <span>
-                <div>{'user.location.country'}</div>
-                <div>{'user.location.city'}</div>
               </span>
             </div>
           )
@@ -58,3 +75,5 @@ class Users extends React.Component {
     )
   }
 }
+
+export default Users;

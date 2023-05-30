@@ -14,13 +14,13 @@ let initialState = {
     {id: 6, photoUrl: "https://cdn-icons-png.flaticon.com/512/4202/4202840.png", followed: false, fullName: 'Ivan', status: 'i am a user', location: {city: 'Mscow', country: 'Russia'}} */
   ],
   pageSize: 10,
-  totalUsersCount: 0,
+  totalUsersCount: 200,
   currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FOLLOW:
+    case FOLLOW: {
       return {
         ...state,
         users: state.users.map(user => {
@@ -30,7 +30,9 @@ const usersReducer = (state = initialState, action) => {
           return user;
         })
       }
-    case UNFOLLOW:
+    }
+      
+    case UNFOLLOW: {
       return {
         ...state,
         users: state.users.map(user => {
@@ -40,6 +42,8 @@ const usersReducer = (state = initialState, action) => {
           return user;
         })
       }
+    }
+      
 
     case SET_USERS: {
       return {
