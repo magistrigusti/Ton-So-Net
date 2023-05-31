@@ -3,7 +3,7 @@ import styles from './Users.module.css';
 import userPhoto from '../../assets/images/user-image.jpg';
 
 let Users = (props) => {
-  let pagesCount = Math.celi(props.totalUsersCount / props.pageSize);
+  let pagesCount = (props.totalUsersCount / props.pageSize);
   let pages = [];
 
   for (let i=1; i<=pagesCount; i++) {
@@ -27,7 +27,7 @@ let Users = (props) => {
             <span>
               <div className={styles.avatar}>
                 <img className={styles.avatar_img}
-                  src={user.pthotos.small != null ? user.photos.small : userPhoto}
+                  src={user.photos.small != null ? user.photos.small : userPhoto}
                 alt='' />
               </div>
 
