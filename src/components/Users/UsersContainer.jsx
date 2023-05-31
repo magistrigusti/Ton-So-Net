@@ -2,7 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import Users from './Users.js'
 import { connect } from 'react-redux';
-import { followActionCreator, unfollowActionCreator, setUsersActionCreator, setCurrentPageActionCreator, setUsersTotalCountActionCreator } from '../../redux/users-reducer.js';
+import { followActionCreator, unfollowActionCreator, setUsersActionCreator, setCurrentPageActionCreator, setUsersTotalCountActionCreator, toggleIsFetchingActionCreator } from '../../redux/users-reducer.js';
+import  imgAlt from './pucMan.svg';
+
+
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -25,7 +28,8 @@ class UsersContainer extends React.Component {
   };
 
   render (props) {
-    return (
+    return <>
+      { this.props.isFetching ? <img src={imgAlt} alt="" /> : null }
       <Users totalUsersCount={this.props.totalUsersCount}
         pageSize={this.props.pageSize}
         currentPage={this.props.currentPage}
@@ -33,8 +37,9 @@ class UsersContainer extends React.Component {
         users={this.props.users}
         follow={this.props.follow}
         unfollow={this.props.unfollow}
+        
       />
-    )
+    </>
   }
 
 }
@@ -44,7 +49,8 @@ let mapStateToProps = (state) => {
     users: state.usersPage.users,
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage
+    currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching
   }
 }
 
@@ -64,6 +70,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setTotalUsersCount: (totalCount) => {
       dispatch(setUsersTotalCountActionCreator(totalCount));
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingActionCreator(isFetching))
     }
 
   }

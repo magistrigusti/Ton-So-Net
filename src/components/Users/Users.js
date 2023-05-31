@@ -43,6 +43,10 @@ let Users = (props) => {
                     >Follow</button>
                 }
               </div>
+
+              <div>
+                <span>{user.country}</span>
+              </div>
             </span>
           </div>
         )

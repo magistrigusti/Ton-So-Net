@@ -6,7 +6,7 @@ const Post = (props) => {
     <div className={classes.wrapper}>
       <div className={classes.post}>
         <div className={classes.avatar_wrapper}>
-          <img className={classes.avatar_img} src="https://pbs.twimg.com/media/DbyjLh4W0AA3Ue-?format=jpg&name=large" alt="">
+          <img className={classes.avatar_img} src="https://cdn.pixabay.com/photo/2020/11/22/22/17/male-5768177_640.png" alt="">
           </img>
 
           <div className={classes.post_text}>
