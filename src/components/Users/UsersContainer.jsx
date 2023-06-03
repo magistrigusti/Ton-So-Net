@@ -9,27 +9,35 @@ import  imgAlt from './pucMan.svg';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
+      this.props.toggleIsFetching(true);
     const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize
       }`;
     axios.get(apiUrl).then(response => {
+      this.props.toggleIsFetching(false);
       this.props.setUsers(response.data.items);
       this.props.setTotalUsersCount(response.data.totalCount);
     });
   };
 
   onPageChanged = (pageNumber) => {
+    this.props.toggleIsFetching(true);
     this.props.setCurrentPage(pageNumber);
     const apiUrl = `https://social-network.samuraijs.com/api/1.0/users?page=${
       pageNumber}&count=${this.props.pageSize
     }`;
     axios.get(apiUrl).then(response => {
+      this.props.toggleIsFetching(false);
       this.props.setUsers(response.data.items);
     });
   };
 
   render (props) {
     return <>
-      { this.props.isFetching ? <img src={imgAlt} alt="" /> : null }
+      { this.props.isFetching ? 
+        <div style={ {backgroundColor: 'white', maxHeight: '100px', maxWidth: '100px'} }>
+          <img src={imgAlt} alt=""  />
+        </div>
+      : null }
       <Users totalUsersCount={this.props.totalUsersCount}
         pageSize={this.props.pageSize}
         currentPage={this.props.currentPage}
