@@ -11,6 +11,7 @@ let store = {
         { id: 3, message: 'Are you ready', likesCount: 30, dislikesCount: 0 }
       ],
       newPostText: '',
+      profile: null
     },
 
     dialogsPage: {
