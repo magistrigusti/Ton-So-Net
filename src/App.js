@@ -19,7 +19,7 @@ const App = (props) => {
         <Nav />
         
         <Routes className = 'content'>
-          <Route path="/profile/:userId" 
+          <Route path="/profile/:userId?" 
                 element={ <ProfileContainer store={props.store} />} 
           />
           <Route path="/dialogs" 
